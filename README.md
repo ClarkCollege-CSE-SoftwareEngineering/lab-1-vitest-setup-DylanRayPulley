@@ -1,3 +1,23 @@
+Dylan Pulley
+
+Tests Added:
+   it('handles all uppercase', () => {
+        expect(slugify('HELLO WORLD')).toBe('hello-world');
+    });
+
+  it('handles Max Length', () => {
+        expect(truncate('Hello', 1)).toBe('Hel...');
+    });
+
+  it('capitalizes a letter', () => {
+      expect(capitalize('a')).toBe('A');
+    });
+
+  it('counts four words', () => {
+      expect(countWords('This is a test')).toBe(4);
+    });
+  
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/TaS1d2WK)
 # Lab 1: Vitest Setup from Scratch
 
@@ -265,6 +285,8 @@ You should see all tests passing. Notice the structure:
 - `expect()` makes assertions
 
 **🤔 Reflection Question:** Look at the `add` tests. The first test uses explicit _Arrange-Act-Assert_ comments. Why might this pattern be useful, especially for complex tests?
+
+This makes the structure of the test clear to read. This is important because as a test becomes more complex this organization helps the developer(s) quickly understand what the test is doing and where to look if a test fails
 
 ### Step 2.4: See a Test Fail
 
@@ -573,9 +595,16 @@ describe("content service", () => {
 
 1. Looking at `strings.test.ts` and `content.test.ts`, which file contains **unit tests** and which contains **integration tests**? How can you tell the difference?
 
-2. If the `slugify` function had a bug, which test files would have failing tests? Why does this happen?
+strings.test.ts contains the unit tests as it is testing each of the string file's functions in isolation.
 
-3. What additional confidence do the integration tests give you that unit tests alone wouldn't provide?
+content.test.ts contains the integration tests as the functions tested combine multiple of strings functions together
+
+3. If the `slugify` function had a bug, which test files would have failing tests? Why does this happen?
+
+Both files would fail as they both integrate slugify. The tests of content.ts rely on the functionality of string.ts 
+
+4. What additional confidence do the integration tests give you that unit tests alone wouldn't provide?
+They add an additional confidence that the functions work outside of isolation and can be integrated together.
 
 ---
 
@@ -615,6 +644,8 @@ The repository includes a `README.md` with these lab instructions. You can modif
 - **Additional Tests** - List the test cases you added (so that it's easy to see which ones are new)
 - **Reflection Answers** - Your answers to the reflection questions (shown with a 🤔 emoji) can be added in-line next to the questions
 - **Testing Trophy Connection** - A brief paragraph (3-5 sentences) explaining how this lab connects to the Testing Trophy concept from your readings
+
+  This lab connects to the testing trophy as it focus on usage of unit tests and integration tests. There is a collection of units tests to lay a foundation for the functionality of the integration tests by ensuring each work in isolation. The integration tests are important because give confidence in how these functions can be integrated and function in a larger scope and can be expanded upon 
 
 ### Test Requirements
 
